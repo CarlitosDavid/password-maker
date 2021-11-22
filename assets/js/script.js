@@ -33,7 +33,8 @@ function generatePassword() {
       console.log(password);
     }
   }
-  length = kprompt("Enter the number of characters you'd like for your new password (Select a number between 8-128)");
+
+  length = prompt("Enter the number of characters you'd like for your new password (Select a number between 8-128)");
   if (!length) {
     alert("Please make a valid entry");
   }
