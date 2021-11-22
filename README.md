@@ -22,5 +22,5 @@
 
 ## Install. 
 
-    url for depolyapplication:
+    url for depolyapplication: https://carlitosdavid.github.io/password-maker/
     
