@@ -5,6 +5,7 @@ var lowerCase;
 var length;
 var specialCharacter;
 var selection;
+var lettersUp;
 
 const characters = ["number", "letters", "character"];
 
@@ -22,36 +23,35 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
    passwordText.value = password;
   
 }
 
 function generatePassword() {
-  document.getElementById("click", generatePassword); {
-    for (let i = 0; i < length; i++ ) {
-      console.log(password);
-    }
-  }
-
+   
+  // this will prompt so you can personalize your password as an alert
   length = prompt("Enter the number of characters you'd like for your new password (Select a number between 8-128)");
   if (!length) {
     alert("Please make a valid entry");
   }
-  else if (length < 8 || length > 128) {
-    length = prompt("New password must be from 8-128 characters");
+  else if (length < 8 || length > 15) {
+    length = prompt("New password must be from 8-15 characters");
   }
   else {
     number = confirm("Include numbers in your new password?");
-    specialCharacter = confirm("Include uppercase letters?");
+    specialCharacter = confirm("Include characters in your new password?");
     upperCase = confirm("Include uppercase letters?");
-    lowerCase = confrim("Include lowercase letters?");
+    lowerCase = confirm("Include lowercase letters?");
   };
-  // generate password in different ways
+
+  // generate password in different ways using if statements
+  
+  // if the user select all above for number, character, uppercase and lowercase
   if (number && specialCharacter && upperCase && lowerCase) {
-    selection = character.concat(number, letters, lettersUp);
+    selection = characters.concat(number, letters, lettersUp);
   }
   
+  // if the user selects only three options. 
   else if (number && specialCharacter && upperCase) {
     selection = characters.concat(number, lettersUp);
 
@@ -66,7 +66,7 @@ function generatePassword() {
     selection = letters.concat(number, character);
   }
 
-
+  // if user select only two options. 
   else if (specialCharacter && number) {
     selection = characters.concat(number);
   }
@@ -86,7 +86,7 @@ function generatePassword() {
     selection = letters.concat(characters);
   }
   
-
+  // if users only selects one option. 
   else if (specialCharacter) {
     selection = characters;
   }
