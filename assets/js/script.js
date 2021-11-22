@@ -3,16 +3,16 @@ var number;
 var upperCase;
 var lowerCase;
 var length;
-var specialCharacter;
+var character;
 var selection;
 var lettersUp;
 
-const characters = ["number", "letters", "character"];
+const characters = ["number", "letters", "characters"];
 
 number = "0123456789";
-letters = "abcdefghijklmnopqrstuvwxyz";
+letter = "abcdefghijklmnopqrstuvwxyz";
 lettersUp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-character = "!@#$%^&*?=+~";
+specialCharacter = "!@#$%^&*?=+~";
 
 // Get reference to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -28,9 +28,14 @@ function writePassword() {
 }
 
 function generatePassword() {
+  document.getElementById("click", generatePassword); {
+    for (let i=0; i < length; i++ ){
+      console.log(password);
+    }
+  }
    
   // this will prompt so you can personalize your password as an alert
-  length = prompt("Enter the number of characters you'd like for your new password (Select a number between 8-128)");
+  length = prompt("Enter the number of characters you'd like for your new password (Select a number between 8-15)");
   if (!length) {
     alert("Please make a valid entry");
   }
@@ -39,7 +44,7 @@ function generatePassword() {
   }
   else {
     number = confirm("Include numbers in your new password?");
-    specialCharacter = confirm("Include characters in your new password?");
+    specialCharacter = confirm("Include special characters in your new password?");
     upperCase = confirm("Include uppercase letters?");
     lowerCase = confirm("Include lowercase letters?");
   };
@@ -48,7 +53,7 @@ function generatePassword() {
   
   // if the user select all above for number, character, uppercase and lowercase
   if (number && specialCharacter && upperCase && lowerCase) {
-    selection = characters.concat(number, letters, lettersUp);
+    selection = characters.concat(number, letter, lettersUp);
   }
   
   // if the user selects only three options. 
@@ -57,13 +62,13 @@ function generatePassword() {
 
   }
   else if (specialCharacter && upperCase && lowerCase) {
-    selection = characters.concat(letters, lettersUp);
+    selection = characters.concat(letter, lettersUp);
   }
   else if (upperCase && lowerCase && number) {
-    selection = lettersUp.concat(letters, number);
+    selection = lettersUp.concat(letter, number);
   }
   else if (lowerCase && number && specialCharacter) {
-    selection = letters.concat(number, character);
+    selection = letter.concat(number, character);
   }
 
   // if user select only two options. 
@@ -80,10 +85,10 @@ function generatePassword() {
     selection = lettersUp.concat(letters);
   }
   else if (lowerCase && number) {
-    selection = letters.concat(number);
+    selection = letter.concat(number);
   }
   else if (lowerCase && specialCharacter) {
-    selection = letters.concat(characters);
+    selection = letter.concat(characters);
   }
   
   // if users only selects one option. 
@@ -94,12 +99,15 @@ function generatePassword() {
     selection = number;
   }
   else if (lowerCase) {
-    selection = letters;
+    selection = letter;
   }
   else if (upperCase) {
     selection = lettersUp;
   };
+
   return selection;
+
+  
 }
 
 // Add event listener to generate button
